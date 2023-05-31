@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome2');
+    return view('index');
 });
-Route::get('/second', function () {
-    return view('secondview');
+Route::get('/todoapp', function () {
+    return view('todoapp');
 });
 
 Route::get('/blog', function () {
