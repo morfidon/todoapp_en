@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name("home.index");
+
 Route::get('/todoapp', function () {
-    return view('todoapp');
-});
+    return view('todoapp.index');
+})->name('todoapp');
+
 
 Route::get('/blog', function () {
-    return view('blog');
-});
+    return view('blog.index');
+})->name("blog");

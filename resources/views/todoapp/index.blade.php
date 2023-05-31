@@ -7,4 +7,4 @@
   </div>
 </form>
 
-<a href="/">Home</a>
+<a href="{{ route("home.index") }}">Home</a>
