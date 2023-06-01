@@ -1,2 +1,2 @@
-<a href="{{ route("todoapp") }}">To do app</a>
-<a href="{{ route("blog") }}">Blog</a>
+<a href="{{ route("todoapp.index") }}">To do app</a>
+<a href="{{ route("blog.index") }}">Blog</a>

@@ -19,9 +19,13 @@ Route::get('/', function () {
 
 Route::get('/todoapp', function () {
     return view('todoapp.index');
-})->name('todoapp');
+})->name('todoapp.index');
+
+Route::get('/todoapp/settings', function () {
+    return view('todoapp.settings');
+})->name('todoapp.settings');
 
 
 Route::get('/blog', function () {
     return view('blog.index');
-})->name("blog");
+})->name("blog.index");
