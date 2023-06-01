@@ -1,1 +1,6 @@
-So this is my first post in Laravel
+@extends("layouts.app")
+@section("title", "Blog")
+
+@section("content")
+Blog
+@endsection
