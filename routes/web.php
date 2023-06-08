@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoAppController;
+use App\Http\Controllers\TodoAppControllerSettings;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +19,11 @@ Route::get('/', function () {
     return view('index');
 })->name("home.index");
 
-Route::get('/todoapp', function () {
-    return view('todoapp.index');
-})->name('todoapp.index');
+Route::get('/todoapp', [TodoAppController::class, "index"])->name('todoapp.index');
 
-Route::get('/todoapp/settings', function () {
-    return view('todoapp.settings');
-})->name('todoapp.settings');
+
+
+Route::get('/todoapp/settings', [TodoAppControllerSettings::class, "index"])->name('todoapp.settings');
 
 
 Route::get('/blog', function () {
