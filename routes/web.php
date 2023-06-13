@@ -21,6 +21,10 @@ Route::get('/', function () {
 
 Route::get('/todoapp', [TodoAppController::class, "index"])->name('todoapp.index');
 
+Route::post('/todoapp', [TodoAppController::class, "store"])->name('todoapp.store');
+
+
+
 
 
 Route::get('/todoapp/settings', [TodoAppControllerSettings::class, "index"])->name('todoapp.settings');

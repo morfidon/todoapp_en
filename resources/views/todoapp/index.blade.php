@@ -3,9 +3,10 @@
 
 @section("content")
 
-<form>
+<form method="POST">
+  @csrf
   <div>
-    <input type="text" placeholder="Enter a to-do item" required>
+    <input type="text" name="content" placeholder="Enter a to-do item" required>
     <input type="submit" value="Add">
   </div>
 </form>
