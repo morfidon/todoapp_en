@@ -13,10 +13,9 @@ class TodoAppController extends Controller
     {
         return view("todoapp.index");
     }
-    public function store(Request $request)
+    public function store(Request $request, Task $task)
     {
         Log::info($request);
-        $task = new Task();
 
         $task->content = $request->content;
         $task->save();
