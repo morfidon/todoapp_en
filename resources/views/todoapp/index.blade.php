@@ -8,12 +8,28 @@
 @endisset
 <ul>
   @foreach ($tasks as $task)
-    <li>
-      {{ $task->content }} 
+    
+    <li 
+      @if ($task->completed == 1)
+        style="color: red;"
+      @endif
+    >
+      
+      <form method="POST" action="{{ route("todoapp.update", $task) }}">
+        @csrf
+        @method("PUT")
+        <input type="text" name="content" value="{{ $task->content }}">
+        <button type="submit">EDIT</button>
+      </form>
       <form method="POST" action="{{ route("todoapp.destroy", $task->id) }}">
         @csrf
         @method("DELETE")
         <button type="submit">DELETE</button>
+      </form>
+      <form method="POST" action="{{ route("todoapp.complete", $task->id) }}">
+        @csrf
+        @method("PUT")
+        <button type="submit">Mark as complete</button>
       </form>
     </li>
   @endforeach
