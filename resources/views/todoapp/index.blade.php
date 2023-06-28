@@ -29,6 +29,7 @@
       <form method="POST" action="{{ route("todoapp.complete", $task->id) }}">
         @csrf
         @method("PUT")
+        <input type="hidden" name="completed" value="1">
         <button type="submit">Mark as complete</button>
       </form>
     </li>
