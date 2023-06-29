@@ -39,7 +39,7 @@
 <form method="POST">
   @csrf
   <div>
-    <input type="text" name="content" placeholder="Enter a to-do item" required>
+    <input type="text" name="content" placeholder="Enter a to-do item">
     <input type="submit" value="Add">
   </div>
 </form>

@@ -9,14 +9,20 @@ use Illuminate\Support\Facades\Log;
 
 class TodoAppController extends Controller
 {
+    protected $rules = [
+        'content' => 'required',
+        'email' => 'email'
+    ];
     public function index()
     {
         return view("todoapp.index")->with("tasks", Task::where("completed", 0)->get());
     }
     public function store(Request $request, Task $task)
     {
-        
-        Task::create($request->all());
+
+        $validatedData = $request->validate($this->rules);
+
+        Task::create($validatedData);
 
         return redirect()->route("todoapp.index");
     }    
@@ -32,7 +38,10 @@ class TodoAppController extends Controller
     } 
     public function update(Request $request, Task $task)
     {
-        $task->update($request->all());
+
+        $validatedData = $request->validate($this->rules);
+
+        $task->update($validatedData);
 
         return redirect()->route("todoapp.index");
     }  
