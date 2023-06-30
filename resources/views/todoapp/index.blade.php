@@ -18,7 +18,7 @@
       <form method="POST" action="{{ route("todoapp.update", $task) }}">
         @csrf
         @method("PUT")
-        <input type="text" name="content" value="{{ $task->content }}">
+        <input type="text" name="]" value="{{ $task->content }}">
         <button type="submit">EDIT</button>
       </form>
       <form method="POST" action="{{ route("todoapp.destroy", $task->id) }}">
@@ -41,6 +41,9 @@
   <div>
     <input type="text" name="content" placeholder="Enter a to-do item">
     <input type="submit" value="Add">
+    @error("content")
+      {{ $message }}
+    @enderror
   </div>
 </form>
 @endsection

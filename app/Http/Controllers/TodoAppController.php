@@ -10,8 +10,13 @@ use Illuminate\Support\Facades\Log;
 class TodoAppController extends Controller
 {
     protected $rules = [
-        'content' => 'required',
-        'email' => 'email'
+        'content' => 'required|max:4',
+        'email' => 'email',
+        
+    ];
+    protected $customErrorMessages = [
+        "content.required" => "You need to type something here.",
+        "content.max" => "The content must be max 4 characters"
     ];
     public function index()
     {
@@ -20,7 +25,7 @@ class TodoAppController extends Controller
     public function store(Request $request, Task $task)
     {
 
-        $validatedData = $request->validate($this->rules);
+        $validatedData = $request->validate($this->rules, $this->customErrorMessages);
 
         Task::create($validatedData);
 
