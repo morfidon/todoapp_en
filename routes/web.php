@@ -20,19 +20,19 @@ Route::get('/', function () {
 })->name("home.index");
 
 
-Route::prefix('todoapp')->name('todoapp.')->group(function()
+Route::prefix('todoapp')->name('todoapp.')->controller(TodoAppController::class)->group(function()
 {
-    Route::get('/', [TodoAppController::class, "index"])->name('index');
-    Route::post('/', [TodoAppController::class, "store"])->name('store');    
-    Route::delete('/{id}', [TodoAppController::class, "destroy"])->name('destroy');    
-    Route::put('/update/{task}', [TodoAppController::class, "update"])->name('update');
+    Route::get('/', "index")->name('index');
+    Route::post('/', "store")->name('store');    
+    Route::delete('/{id}', "destroy")->name('destroy');    
+    Route::put('/update/{task}', "update")->name('update');
     
-    Route::put('/complete/{task}', [TodoAppController::class, "complete"])->name('complete');  
+    Route::put('/complete/{task}', "complete")->name('complete');  
 
-    Route::prefix('settings')->name('settings.')->group(function()
+    Route::prefix('settings')->name('settings.')->controller(TodoAppControllerSettings::class)->group(function()
     {
-        Route::get('/', [TodoAppControllerSettings::class, "index"])->name('index');
-        Route::post('/', [TodoAppControllerSettings::class, "store"])->name('store');
+        Route::get('/', "index")->name('index');
+        Route::post('/', "store")->name('store');
 
     });
 
