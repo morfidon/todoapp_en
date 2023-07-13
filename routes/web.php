@@ -24,7 +24,7 @@ Route::prefix('todoapp')->name('todoapp.')->controller(TodoAppController::class)
 {
     Route::get('/', "index")->name('index');
     Route::post('/', "store")->name('store');    
-    Route::delete('/{id}', "destroy")->name('destroy');    
+    Route::delete('/{id}', "destroy")->middleware('log.ip')->name('destroy');    
     Route::put('/update/{task}', "update")->name('update');
     
     Route::put('/complete/{task}', "complete")->name('complete');  
